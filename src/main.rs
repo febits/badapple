@@ -6,7 +6,6 @@ use std::thread;
 use std::time;
 
 use clap::Parser;
-use term_size;
 
 fn main() {
     let cli = Cli::parse();

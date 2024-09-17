@@ -24,7 +24,7 @@ pub mod badframes {
     use std::process::Command;
 
     const ASCII_SHADING: &str = " .:-=+*#%@";
-    const SCALE_FACTOR: u8 = std::u8::MAX / (ASCII_SHADING.len() as u8 - 1);
+    const SCALE_FACTOR: u8 = u8::MAX / (ASCII_SHADING.len() as u8 - 1);
 
     pub struct Frames {
         pub curr_frame: Vec<String>,
@@ -107,7 +107,7 @@ pub mod badframes {
 
             for (_, r) in luma.enumerate_rows() {
                 let mut tmp = String::new();
-                for (_, (_, _, gray)) in r.enumerate() {
+                for (_, _, gray) in r {
                     tmp.push(self.map_grayscale_to_ascii(gray.0[0]));
                 }
                 tmp.push('\n');
